@@ -23,6 +23,13 @@ class AQWVerifier(commands.Bot):
         
         print("Cogs loaded.")
 
+    async def verify_guild(self, username: str, guild_name: str) -> bool:
+        resp = await self.session.get(f"https://account.aq.com/CharPage?id={username}")
+        if resp.ok:
+            if guild_name in (await resp.text()):
+                return True
+        return False
+
     async def verify_item(self, username: str, item_name: str) -> bool:
         resp = await self.session.get(f"https://account.aq.com/CharPage?id={username}")
         if resp.ok:
