@@ -7,7 +7,7 @@ load_dotenv()
 def main():
     aqw = AQWVerifier(
         token=os.environ['TOKEN'],
-        admins={"shell": 1143657502941122580},
+        admins={"replace_with_yourself": 1143657502941122580},
         command_prefix="!",
         intents=discord.Intents.all()
     )
