@@ -8,5 +8,6 @@ Then install requirements
 ```sh
 python -m pip install -r requirements.txt
 ```
+![image](https://github.com/user-attachments/assets/cc6b8516-6ff5-4ac1-beef-cb01369bfc99)
 
 gg
