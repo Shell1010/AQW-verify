@@ -24,7 +24,11 @@ class Verification(commands.Cog):
         if user_check:
             ccid = await self.bot.get_ccid(username)
             inventory = await self.bot.get_inventory(ccid)
-            specific_item = random.choice(inventory)
+            
+            while True:
+                specific_item = random.choice(inventory)
+                if not self.bot.verify_item(username, specific_item['strName']):
+                    break
             await ctx.response.send_message(view=VerifyTicket(self.bot, ccid, username, specific_item),embed=discord.Embed(title="Verification 50% complete", description=f"Now that we've verified your username. We will now verify that this account is yours. We ask you to equip this specific item\n\n`{specific_item['strName']}`\n\nPlease equip this item in-game then wait 30s-1m before clicking verify again."), ephemeral=True)
             
     @app_commands.command(name="sync", description="Syncs commands to the server.")
