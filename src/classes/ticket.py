@@ -21,7 +21,7 @@ class VerifyTicket(discord.ui.View):
             await interaction.response.send_message(embed=discord.Embed(title="Your verification failed", description="We found this item in your inventory but you're not wearing it! Please verify again."), ephemeral=True)
         else:
             await interaction.response.send_message(embed=discord.Embed(title="Verification complete!", description="Welcome to the server."), ephemeral=True)
-            if await self.bot.verify_guild(self.username, "drift"):
+            if await self.bot.verify_guild(self.username, "Dr1ft"):
                 await interaction.user.add_roles(discord.Object(id=1370919058542952649))
             else:
                 await interaction.user.add_roles(discord.Object(id=1371202583947116614))
