@@ -30,7 +30,7 @@ class Verification(commands.Cog):
 
             while True:
                 specific_item = random.choice(inventory)
-                if not self.bot.verify_item(username, specific_item["strName"]):
+                if not (await self.bot.verify_item(username, specific_item["strName"])):
                     break
                 await asyncio.sleep(5)
             await ctx.followup.send(
